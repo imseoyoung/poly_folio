@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Layout04</title>
+    <style>
+    #wrap {
+        width: 1000px;
+        height: 900px;
+        margin: 0 auto;
+        font-size: 30px;
+        color: #fff;
+        text-align: center;
+        text-transform: uppercase;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .header {
+        width: 100%;
+        height: 100px;
+        line-height: 100px;
+        background: rgb(18, 150, 18);
+    }
+
+    .nav {
+        width: 100%;
+        height: 100px;
+        line-height: 100px;
+        background: rgb(59, 216, 59);
+    }
+
+    .side {
+        width: 30%;
+        min-height: 66.66vh;
+        line-height: 600px;
+        background: rgb(80, 247, 89);
+    }
+
+    .content1 {
+        width: 70%;
+        min-height: 33.33vh;
+        line-height: 300px;
+        background: rgb(146, 206, 153);
+    }
+
+    .content2 {
+        width: 70%;
+        min-height: 33.33vh;
+        line-height: 300px;
+        background: rgb(8, 102, 19);
+    }
+
+    .footer {
+        width: 100%;
+        height: 100px;
+        line-height: 100px;
+        background: greenyellow;
+    }
+</style>
+</head>
+<body>
+    <!-- 코드내용 -->
+    <div id="wrap">
+        <div class="header">header</div>
+        <div class="nav">nav</div>
+        <div class="side">side</div>
+        <div class="content1">content1
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+        </div>
+        <div class="content2">content2
+            <br>
+            <br>
+            <br>
+        </div>
+        <div class="footer">footer</div>
+    </div>
+</body>
+</html>

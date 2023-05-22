@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>layout02</title>
+    <style>
+        /* 여백 초기화 */
+        body, div, ul, li, dl, dt, ol, h1, h2, h3, h4, h5, h6, input, fieldset, legend, p, select, table, th, td, tr, textarea, button, form {margin: 0; padding: 0;}
+        #wrap{
+        background-color: rgb(143, 241, 167);
+        width: 1000px;
+        margin: 0 auto;
+    }
+    #header{
+        /*float:left;*/
+        height: 90px;
+        align-content: center;
+        color:white;
+        background-color: darkgreen;
+        margin: 0 auto;
+        align-items: center;
+            display: flex;
+            justify-content: center;
+        clear: both;
+        text-transform: uppercase;
+    }
+    #nav{
+        background-color: rgb(10, 129, 10);
+        clear: both;
+        margin: 0 auto;
+        height: 90px;
+        align-items: center;
+            display: flex;
+            justify-content: center;
+        color:white;
+        text-transform: uppercase;
+    }
+    #side{
+        background-color: rgb(18, 150, 18);
+        float:left;
+        width: 30%;
+        height: 500px;
+        margin: 0 auto;
+        align-items: center;
+            display: flex;
+            justify-content: center;
+        color:white;
+        text-transform: uppercase;
+    }
+    #contents{
+        background-color: rgb(40, 173, 40);
+        float:right;
+        height: 500px;
+        margin: 0 auto;
+        width: 70%;
+        text-transform: uppercase;
+        align-items: center;
+            display: flex;
+            justify-content: center;
+        color:white;
+    }
+    #footer{
+        background-color: rgb(59, 216, 59);
+        clear:both;
+        height: 100px;
+        margin: 0 auto;
+        text-transform: uppercase;
+        align-items: center;
+            display: flex;
+            justify-content: center;
+        color:white;
+    }
+    </style>
+
+
+</head>
+<body>
+    <div id="wrap">
+        <div id="header">header</div>
+        <div id="nav">nav</div>
+        <div id="side">side</div>
+        <div id="contents">contents</div>
+        <div id="footer">footer</div>
+    </div>
+</body>
+</html>

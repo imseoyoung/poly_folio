@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>layout05</title>
+    <style>
+        /* 여백 초기화 */
+        body, div, ul, li, dl, dt, ol, h1, h2, h3, h4, h5, h6, input, fieldset, legend, p, select, table, th, td, tr, textarea, button, form {margin: 0; padding: 0;}
+
+        #wrap { 
+            width: 1000px;
+            height: 900px;
+            margin: 0 auto;
+            font-size: 30px;
+            color: #fff;
+            text-align: center;
+            text-transform: uppercase;
+        }
+        .header-wrap {
+            width: 1000px; 
+            height: 100px; 
+            line-height: 100px; 
+            background: rgb(18, 150, 18); 
+        } 
+        .banner-wrap {
+            width: 1000px;
+            height: 100px;
+            line-height: 100px;
+            background: rgb(59, 216, 59); 
+        }
+        .side {
+            float: left; 
+            width: 300px; 
+            height: 600px; 
+            line-height: 600px; 
+            background: rgb(80, 247, 89);
+        }
+        .content-wrap {
+            float: left; 
+            width: 700px; 
+            height: 300px; 
+            line-height: 300px; 
+            background: rgb(146, 206, 153) ;
+        }
+        .footer-wrap {
+            float: left; 
+            width: 700px; 
+            height: 300px; 
+            line-height: 300px; 
+            background: green 
+        }
+    </style>
+</head>
+<body>
+    <!-- 코드내용 -->
+    <div id="wrap">
+        <div id="header-wrap">
+            <div class="header-container">header</div>
+        </div>
+        <div id="banner-wrap">
+            <div class="banner-container">banner</div>
+        </div>
+        <div id="content-wrap">
+            <div class="content-container">content</div>
+        </div>
+        <div id="footer-wrap">
+            <div class="footer-container">footer</div>
+        </div>
+    </div>
+</body>
+</html>

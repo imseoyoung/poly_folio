@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>테두리</h2>
+    <style>
+        .border-solid{
+            border-style: solid;
+        }
+        .border-dashed{
+            border-style: dashed;
+        }
+        .border-double{
+            border-style: double;
+        }
+    </style>
+    <div class ="border-solid">요소1</div>
+    <div class ="border-dashed">요소2</div>
+    <div class ="border-double">요소3</div>
+
+    <h2>테두리 크기</h2>
+    <style>
+        .border-1{
+            border-style: solid;
+            border-width: 1px;
+        }
+        .border-2{
+            border-style: solid;
+            border-width: 10px;
+        }
+    </style>
+    <div class ="border-1">요소4</div>
+    <div class ="border-2">요소5</div>
+
+
+    <br><br>
+
+    <h2>테두리 실습</h2>
+    <style>
+        .el-6{
+            width : 200px;
+            height: 200px;
+            border-left: 4px solid;
+            border-bottom:3px solid;
+            border-top:3px dashed;
+            border-right:5px dashed;
+            
+        }
+        .el-7{
+            width : 1000px;
+            height: 300px;
+            border-left: 3px solid ;
+            border-radius: 5px;
+            border-bottom:3px solid;
+            border-top:3px solid;
+            border-right:3px solid;
+            margin-left: 10px;
+        }
+        .el-8{
+            width : 1000px;
+            height: 300px;
+            border-left: 3px  dashed skyblue;
+            border-radius: 5px;
+            border-bottom:3px  dashed skyblue;
+            border-top:3px dashed skyblue;
+            border-right:3px  dashed skyblue;
+            margin-left: 10px;
+        }
+        .el-9{
+            width : 1000px;
+            height: 300px;
+            border-top-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            border-left: 3px solid green;
+            border-bottom:3px solid green;
+            border-top:3px solid green;
+            border-right:3px solid green;
+            margin-left: 10px;
+        }
+        .menu{
+            border : 3px solid blue;
+        }
+        .top-menu{
+            height: 100px;
+            border-bottom: 3px solid black;
+            font-size: 30px;
+            background-color: blue;
+        }
+    </style>
+    <div class="menu">
+        <div class="top-menu">애완견 종류
+        </div> 
+        <br>
+        <div class ="el-7"></div>
+        <br>
+        <div class ="el-8">요소8</div>
+        <br>
+        <div class ="el-9">요소9</div>
+        <br><br>
+        건강한 강아지는
+        <br>
+            <oi type="1">
+                <li>코가 젖어</li>
+                <li>코가 젖어</li>
+                <li>코가 젖어</li>
+                <li>코가 젖어</li>
+                <li>코가 젖어</li>
+            </oi>
+    </div>
+    
+</body>
+</html>
