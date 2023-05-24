@@ -115,32 +115,55 @@
     .text {
         text-align: center;
         margin-top: 20px;
+        margin-bottom: 100px;
+    }
+
+    .parent_div{
+        margin: 0% auto;
+    }
+    .child_div{
+        margin: 0% auto;
+        transform-origin: 50% 0%;
     }
 
 </style>
 
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About</title>
-</head>
-<body>
-    <div class="main">
-        <div class="animate__animated animate__backInLeft slow 4s">
-            <h1 class="display-5 fw-bold">Hana Travel Trace, 어떤 혜택이 있나요?</h1>
-            <div class="text">
-                <p class="fs-4">"TravelTrace" 는 "여행"과 "추적"이라는 단어를 결합한 것입니다. <br>
-                    TravelTrace는 여행자들이 하나머니로 외화를 충전하고 사용하는 <br>
-                    과정에서 발생하는 소비 내역을 자동으로 추적하고 분석합니다.</p>
-            </div>
+<div class="main">
+    <div class="animate__animated animate__backInDown slow 4s">
+        <h1 class="display-5 fw-bold">Hana Travel Trace, 어떤 혜택이 있나요?</h1>
+        <div class="text">
+            <p class="fs-4">"TravelTrace" 는 "여행"과 "추적"이라는 단어를 결합한 것입니다. <br>
+                TravelTrace는 여행자들이 하나머니로 외화를 충전하고 사용하는 <br>
+                과정에서 발생하는 소비 내역을 자동으로 추적하고 분석합니다.</p>
         </div>
     </div>
-</body>
-</html>
+    <div class="parent_div">
+        <div class="child_div">
+            <img src="./img/function.png" width="900px">
+        </div>
+    </div>
+    <script>
+        window.onscroll = () => {
+            const parentDiv = document.querySelector('.parent_div');
+            const viewportHeight = window.innerHeight;
+            const fromViewportToParentHeight = parentDiv.getBoundingClientRect().top;
+            const scrolling = viewportHeight - fromViewportToParentHeight;
+            // parentDiv의 height가 뷰포트 높이보다 크면 뷰포트로, 아닐경우 parentDiv로
+            let divHeight = parentDiv.clientHeight > viewportHeight ? viewportHeight : parentDiv.clientHeight;
+            let scrollRate = scrolling / divHeight * 100;
+    
+            if (scrolling / divHeight * 100 < 0) {
+                scrollRate = 0;
+            } else if (scrolling / divHeight * 100 > 100) {
+                scrollRate = 100;
+            }
+    
+            // 스타일 적용하는 부분
+            const childDiv = document.querySelector('.child_div');
+            childDiv.style.transform = `scale(${scrollRate / 100})`;
+        };
+    </script>
+</div>
     </div>
     <footer>
         메이드바이서영이 👻
