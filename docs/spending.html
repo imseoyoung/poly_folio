@@ -84,50 +84,64 @@
     <div class="content">
         <style>
     .main {
-    background-color: lightgrey;
-    width: 400px;
-    height: 400px;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
+        display: flex;
+        flex-direction: column; 
+        justify-content: center;
+        text-align: center;
+        margin-top: 50px;
+        margin-bottom: 100px;
     }
-
-    .container {
-    width: 300px;
-    height: 300px;
-    background-color: dodgerblue;
-    border: 1px solid white;
-    display: flex;
-    flex-direction: column; 
-    justify-content: center;
-    align-items: center;
+    .text {
+        text-align: left;
+        margin-bottom: 20px;
     }
-
-    .child {
-    height: 75px;
-    width: 75px;
-    background-color: whitesmoke;
-    border: 1px solid snow;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+    .chart_div{
+        background-color: white;
+        opacity: 0.7;
+        border-radius: 20px;
+        box-shadow: 5px 5px 5px 5px grey;
+        width: 900px;
+        height: 800px;
+    }
 </style>
 
 <div class="main">
-    <div class="container">
-        <div class="child">
-            <h2>Child 1</h2>
-        </div>
-        <div class="child">
-            <h2>Child 2</h2>
-        </div>
-        <div class="child">
-            <h2>Child 3</h2>
-        </div>
-        </div>
-    <div class="container"></div>
+    <div class="chart_div">
+        <br>
+        <h1>GBP</h1>
+        <canvas id="myPieChart"></canvas>
+    </div>
 </div>
+
+<!-- 부트스트랩 -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+<!-- 차트 -->
+<script>
+    data = {
+        datasets: [{
+            backgroundColor: ['rgba(255, 99, 132, 0.2)','rgba(54, 162, 235, 0.2)','rgba(255, 206, 86, 0.2)', 'rgba(75, 192, 192, 0.2', 'rgba(153, 102, 255, 0.2)'],
+            data: [10, 20, 30, 20, 10]
+        }],       
+        // 라벨의 이름이 툴팁처럼 마우스가 근처에 오면 나타남
+        labels: ['숙박','쇼핑','식비', '교통', '그 외']
+    };
+
+    // 가운데 구멍이 없는 파이형 차트
+    var ctx1 = document.getElementById("myPieChart");
+    var myPieChart = new Chart(ctx1, {
+        type: 'pie',
+        data: data,
+        options: {}
+    });
+</script>
     </div>
     <footer>
         <hr>

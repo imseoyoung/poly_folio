@@ -4,7 +4,7 @@
 <loc>http://localhost:4000/about.html</loc>
 </url>
 <url>
-<loc>http://localhost:4000/company.html</loc>
+<loc>http://localhost:4000/hanamoney.html</loc>
 </url>
 <url>
 <loc>http://localhost:4000/</loc>
@@ -13,7 +13,6 @@
 <loc>http://localhost:4000/mylog.html</loc>
 </url>
 <url>
-<loc>http://localhost:4000/include.html</loc>
-<lastmod>2023-05-22T14:08:41+09:00</lastmod>
+<loc>http://localhost:4000/spending.html</loc>
 </url>
 </urlset>

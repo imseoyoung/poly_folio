@@ -84,50 +84,90 @@
     <div class="content">
         <style>
     .main {
-    background-color: lightgrey;
-    width: 400px;
-    height: 400px;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
+        display: flex;
+        flex-direction: column; 
+        justify-content: center;
+        text-align: center;
+        margin-top: 50px;
+        margin-bottom: 100px;
     }
-
-    .container {
-    width: 300px;
-    height: 300px;
-    background-color: dodgerblue;
-    border: 1px solid white;
-    display: flex;
-    flex-direction: column; 
-    justify-content: center;
-    align-items: center;
+    .text {
+        text-align: left;
+        margin-bottom: 20px;
     }
-
-    .child {
-    height: 75px;
-    width: 75px;
-    background-color: whitesmoke;
-    border: 1px solid snow;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+    .chart_div{
+        background-color: white;
+        opacity: 0.7;
+        border-radius: 20px;
+        box-shadow: 5px 5px 5px 5px grey;
+        width: 900px;
+        height: 500px;
+    }
 </style>
 
 <div class="main">
-    <div class="container">
-        <div class="child">
-            <h2>Child 1</h2>
-        </div>
-        <div class="child">
-            <h2>Child 2</h2>
-        </div>
-        <div class="child">
-            <h2>Child 3</h2>
-        </div>
-        </div>
-    <div class="container"></div>
+    <div class="text">
+        <p class="fs-3 fw-bold">
+            임서영 고객님의 <br>
+            하나머니 이용 내역 분석 결과입니다.
+        </p>
+    </div>
+    <div class="chart_div">
+        <canvas id="myChart"></canvas>
+    </div>
 </div>
+
+<!-- 부트스트랩 -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+<!-- 차트 -->
+<script>
+    var ctx = document.getElementById('myChart');
+    var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        datasets: [{
+        label: '# of Votes',
+        data: [12, 19, 3, 5, 2, 3],
+        backgroundColor: [
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(255, 206, 86, 0.2)',
+            'rgba(75, 192, 192, 0.2)',
+            'rgba(153, 102, 255, 0.2)',
+            'rgba(255, 159, 64, 0.2)'
+        ],
+        borderColor: [
+            'rgba(255, 99, 132, 1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(75, 192, 192, 1)',
+            'rgba(153, 102, 255, 1)',
+            'rgba(255, 159, 64, 1)'
+        ],
+        borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+        yAxes: [{
+            ticks: {
+            beginAtZero: true
+            }
+        }]
+        }
+    }
+    });
+
+</script>
     </div>
     <footer>
         <hr>
