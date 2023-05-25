@@ -15,5 +15,6 @@ let obj = {
     }
 }
 
-let name="sim"
+let name="im"
 console.log(name);
+

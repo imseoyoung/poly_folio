@@ -3,9 +3,9 @@ layout: base
 ---
 <style>
     .main {
-            margin: 0 auto;
-            margin-right: 70px;
-            text-align: center;
+        margin: 0 auto;
+        margin-right: 70px;
+        text-align: center;
     }
 
     .text {
@@ -20,22 +20,41 @@ layout: base
     .child_div{
         margin: 0% auto;
         transform-origin: 50% 0%;
+        background-color: white;
+        opacity: 0.7;
+        border-radius: 20px;
+        box-shadow: 5px 5px 5px 5px grey;
+        width: 900px;
+        height: 300px;
     }
+    .icon-box {
+        width: 200px;
+        margin-top: 50px;
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+    .icon-box:hover {
+        transform: scale( 1.1 )
+    }
+
+
 
 </style>
 
 <div class="main">
-    <div class="animate__animated animate__backInDown slow 4s">
-        <h1 class="display-5 fw-bold">Hana Travel Trace, 어떤 혜택이 있나요?</h1>
-        <div class="text">
-            <p class="fs-4">"TravelTrace" 는 "여행"과 "추적"이라는 단어를 결합한 것입니다. <br>
-                TravelTrace는 여행자들이 하나머니로 외화를 충전하고 사용하는 <br>
-                과정에서 발생하는 소비 내역을 자동으로 추적하고 분석합니다.</p>
-        </div>
+    <h1 class="display-6 fw-bold">Hana Travel Trace, 어떤 혜택이 있나요?</h1>
+    <div class="text">
+        <p class="fs-5">"TravelTrace" 는 "여행"과 "추적"이라는 단어를 결합한 것입니다. <br>
+            TravelTrace는 여행자들이 하나머니로 외화를 충전하고 사용하는 <br>
+            과정에서 발생하는 소비 내역을 자동으로 추적하고 분석합니다.</p>
     </div>
     <div class="parent_div">
         <div class="child_div">
-            <img src="./img/function.png" width="900px">
+            <div class="icon_div">
+                <a href="company.html"><img src="./img/icon1.png" class="icon-box"></a>
+                <a href="company.html"><img src="./img/icon2.png" class="icon-box"></a>
+                <a href="company.html"><img src="./img/icon3.png" class="icon-box"></a>
+            </div>
         </div>
     </div>
     <script>
