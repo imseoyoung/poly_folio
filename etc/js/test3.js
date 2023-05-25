@@ -11,7 +11,7 @@ let obj = {
     },
 
     park:function() {
-        console.log("심민정 파이팅");
+        console.log("imseoyoung 파이팅 too");
     }
 }
 

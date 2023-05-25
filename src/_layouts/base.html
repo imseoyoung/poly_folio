@@ -15,12 +15,8 @@
             font-style: normal;
         }
 
-        h1 {
-            font-family: 'Pretendard-Bolder';
-        }
-
         * {
-            font-family: 'Pretendard-Reguler';
+            font-family: 'Pretendard-Regular';
         }
 
         body {
@@ -29,7 +25,12 @@
         }
 
         .content {
-        margin: 150px 100px 200px 200px;
+            margin-left: 200px;
+            margin-right: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            height: 100vh;
         }
 
         header {
@@ -46,20 +47,14 @@
             margin-left: 200px;
             margin-right: 200px;
         }
-
-        .logo {
-            float: right;
-            margin: 0px 200px 50px 0px;
-        }
-
-    </style>
+</style>
 </head>
 <body>
     <header>
-    {% include nav2.html %}
+        {% include nav2.html %}
     </header>
     <div class="content">
-    {{ content }}
+        {{ content }}
     </div>
     <footer>
         {% include footer.html %}

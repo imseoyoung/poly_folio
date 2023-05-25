@@ -15,12 +15,8 @@
             font-style: normal;
         }
 
-        h1 {
-            font-family: 'Pretendard-Bolder';
-        }
-
         * {
-            font-family: 'Pretendard-Reguler';
+            font-family: 'Pretendard-Regular';
         }
 
         body {
@@ -29,7 +25,12 @@
         }
 
         .content {
-        margin: 150px 100px 200px 200px;
+            margin-left: 200px;
+            margin-right: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            height: 100vh;
         }
 
         header {
@@ -46,17 +47,11 @@
             margin-left: 200px;
             margin-right: 200px;
         }
-
-        .logo {
-            float: right;
-            margin: 0px 200px 50px 0px;
-        }
-
-    </style>
+</style>
 </head>
 <body>
     <header>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">
             <a href="index.html"><img src="./img/logo.png" width="190px" height="50"></a>
@@ -76,7 +71,7 @@
                 <a class="nav-link" href="/company.html">소비내역분석</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link">마이로그</a>
+                <a class="nav-link" href="/mylog.html">마이로그</a>
             </li>
         </ul>
         </div>
@@ -85,11 +80,19 @@
 
     </header>
     <div class="content">
-    <style>
+        <style>
+    .logo {
+        width: 300px;
+        height: 300px;
+        display: flex;
+        flex-direction: column; 
+        justify-content: center;
+    }  
     .main {
-            margin-left: 50px;
+        display: flex;
+        flex-direction: column; 
+        justify-content: center;
     }
-
     .btn {
             padding: 15px 35px;
             display: inline-block;

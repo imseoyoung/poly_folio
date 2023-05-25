@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        // html 문서가 정상적으로 로그가 완료 되면 다음 함수를 실행해 주세요
+        document.addEventListener("DOMContentLoaded",function(){
+
+            // 문서에서 btn-message 클래스 속성을 가진 태그를 찾아주세요
+            // 만일 여러개가 있으면, 첫번째 것으로 찾아주세요
+            let button= document.querySelector(".btn-message");
+            console.log(button);
+
+            // 그 버튼에 이벤트를 추가해 주세요
+            // 이벤트 동작의 종류는 클릭입니다.
+            // 버튼이 클릭을 하게 되면, 전달한 익명함수를 실행해 주세요
+            button.addEventListener('click',function(){
+                alert("반갑습니다.");
+                let message=document.querySelector(".message");
+                message.style.display="block";
+            });
+
+            let messageClose=document.querySelector(".message-close");
+            messageClose.addEventListener("click",function(e){
+                console.log(e);
+                // 이벤트가 발생된 타겟 = span
+                // 부모태그 div.message 의 스타일 display 속성을 none으로
+                // 설정해서 숨기기를 합니다.
+                e.target.parentElement.style.display="none";
+            })
+        });
+
+        function hello(){
+            alert("hello");
+        }
+        
+    </script>
+</head>
+<body>
+    <button class="btn-message">메세지</button>
+    <style>
+        .message{
+            border:1px solid black;
+            background-color: lightgray;
+            display: none;
+        }
+        .message-close{
+            color: white;
+            border: 1px solid red;
+            background-color: red;
+            border-radius: 50%;
+            padding: 5px;
+        }
+    </style>
+    <div class="message">
+        오늘은 화창한 날이에요
+        <span class="message-close">x</span>
+    </div>
+    
+</body>
+</html>
