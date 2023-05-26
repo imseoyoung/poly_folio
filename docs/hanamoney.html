@@ -40,13 +40,13 @@
         }
 
         nav {
-            margin-left: 200px;
-            margin-right: 200px;
+            margin-left: 150px;
+            margin-right: 150px;
         }
 
         footer {
-            margin-left: 200px;
-            margin-right: 200px;
+            margin-left: 150px;
+            margin-right: 150px;
             color: grey;
         }
 </style>
@@ -106,7 +106,7 @@ $(document).ready(function() {
         <style>
     .main {
         display: flex;
-        flex-direction: column; 
+        flex-direction: column;
         justify-content: center;
         text-align: center;
         margin-top: 50px;
@@ -116,13 +116,47 @@ $(document).ready(function() {
         text-align: left;
         margin-bottom: 20px;
     }
-    .chart_div{
+    .chart_div {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
         background-color: white;
         opacity: 0.7;
         border-radius: 20px;
         box-shadow: 5px 5px 5px 5px grey;
-        width: 900px;
+        width: 1000px;
         height: 500px;
+    }
+    .box_container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        margin-left: 50px;
+        margin-right: 50px;
+    }
+    .chart_box_div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        background-color: white;
+        opacity: 0.7;
+        border-radius: 20px;
+        box-shadow: 5px 5px 5px 5px grey;
+        margin: 7px 7px 7px 7px;
+        width: 150px;
+        height: 150px;
+    }
+    .chart_container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex: 1;
+    }
+    .chart_div canvas {
+        max-width: 100%;
+        max-height: 100%;
     }
 </style>
 
@@ -134,7 +168,23 @@ $(document).ready(function() {
         </p>
     </div>
     <div class="chart_div">
-        <canvas id="myChart"></canvas>
+        <div class="box_container">
+            <div class="chart_box_div">
+                <p>1</p>
+            </div>
+            <div class="chart_box_div">
+                <p>2</p>
+            </div>
+            <div class="chart_box_div">
+                <p>3</p>
+            </div>
+            <div class="chart_box_div">
+                <p>4</p>
+            </div>
+        </div>
+        <div class="chart_container">
+            <canvas id="myChart"></canvas>
+        </div>
     </div>
 </div>
 

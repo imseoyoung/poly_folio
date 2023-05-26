@@ -1,49 +1,146 @@
---- 
-layout: base
----
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <style>
-    .main {
-    background-color: lightgrey;
-    width: 400px;
-    height: 400px;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
+    .chart_div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
-    .container {
-    width: 300px;
-    height: 300px;
-    background-color: dodgerblue;
-    border: 1px solid white;
-    display: flex;
-    flex-direction: column; 
-    justify-content: center;
-    align-items: center;
+    .text {
+        margin-top: 30px;
+        margin-bottom: 30px;
     }
 
-    .child {
-    height: 75px;
-    width: 75px;
-    background-color: whitesmoke;
-    border: 1px solid snow;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+    .slider-text {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #ffffff;
+        width: 150px;
+        height: 150px;
+        border-radius: 100%;
+        border: 1px solid #dfe3e8;
+        box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.1);
+    }
+
+    .slider-text h1 {
+        font-size: 30px;
+        font-weight: bold;
+        color: #23282c;
+    }
+
+    canvas {
+        max-width: 80%;
+        max-height: 80%;
+    }
+
+    .slider-btn {
+        display: flex;
+        justify-content: space-between;
+        width: 300px;
+        margin-top: 20px;
+    }
+
+    .slider-btn button {
+        padding: 10px 20px;
+        font-size: 16px;
+        font-weight: bold;
+        background-color: #dfe3e8;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
 </style>
+</head>
 
+<body>
 <div class="main">
-    <div class="container">
-        <div class="child">
-            <h2>Child 1</h2>
+    <div class="chart_div">
+        <br>
+        <div class="text">
+            <div class="slider-text">
+                <h1>GBP</h1>
+            </div>
         </div>
-        <div class="child">
-            <h2>Child 2</h2>
+        <canvas id="myPieChart"></canvas>
+        <div class="slider-btn">
+            <button onclick="prevSlide()">Previous</button>
+            <button onclick="nextSlide()">Next</button>
         </div>
-        <div class="child">
-            <h2>Child 3</h2>
-        </div>
-        </div>
-    <div class="container"></div>
+    </div>
 </div>
+
+<script>
+    var chartData = {
+        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+        datasets: [{
+            label: '# of Votes',
+            data: [12, 19, 3, 5, 2, 3],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.5)',
+                'rgba(54, 162, 235, 0.5)',
+                'rgba(255, 206, 86, 0.5)',
+                'rgba(75, 192, 192, 0.5)',
+                'rgba(153, 102, 255, 0.5)',
+                'rgba(255, 159, 64, 0.5)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    };
+
+    var chartOptions = {
+        responsive: true,
+        maintainAspectRatio: false
+    };
+
+    var currentSlide = 0;
+    var chartElement = document.getElementById("myPieChart");
+    var myPieChart;
+
+    function createChart() {
+        if (myPieChart) {
+            myPieChart.destroy();
+        }
+
+        myPieChart = new Chart(chartElement, {
+            type: 'pie',
+            data: chartData,
+            options: chartOptions
+        });
+    }
+
+    function prevSlide() {
+        currentSlide--;
+        if (currentSlide < 0) {
+            currentSlide = chartData.datasets.length - 1;
+        }
+        updateChartData();
+    }
+
+    function nextSlide() {
+        currentSlide++;
+        if (currentSlide >= chartData.datasets.length) {
+            currentSlide = 0;
+        }
+        updateChartData();
+    }
+
+    function updateChartData() {
+        chartOptions.title = {
+            display: true,
+            text: chartData.labels[currentSlide]
+        };
+        chartData.datasets[0].data = chartData.datasets[currentSlide].data;
+        createChart();
+    }
+
+    updateChartData();
+</script>
