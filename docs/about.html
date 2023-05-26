@@ -53,7 +53,11 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <!-- jQuery를 로드하기 위한 스크립트 태그 추가 -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- HTML 코드 -->
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
         <a class="navbar-brand" href="index.html">
             <img src="./img/logo.png" width="190px" height="50">
@@ -64,7 +68,7 @@
         <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link active" href="/about.html"aria-current="page">서비스안내</a>
+                <a class="nav-link" href="/about.html" aria-current="page">서비스안내</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/hanamoney.html">하나머니분석</a>
@@ -80,6 +84,23 @@
     </div>
 </nav>
 
+<!-- JavaScript 코드 -->
+<script>
+$(document).ready(function() {
+    // 현재 URL을 가져와서 활성화된 링크를 찾음
+    var currentURL = window.location.href;
+
+    $('.nav-link').each(function() {
+        // 각 링크의 href 속성 값을 가져옴
+        var linkURL = $(this).attr('href');
+
+        // 현재 URL과 href 속성 값이 일치하는 경우 "active" 클래스를 추가함
+        if (currentURL.indexOf(linkURL) !== -1) {
+            $(this).addClass('active');
+        }
+    });
+});
+</script>
     </header>
     <div class="content">
         <style>
@@ -123,17 +144,17 @@
 
 <div class="main">
     <div class="animate__animated animate__slideInDown">
-    <h1 class="display-6 fw-bold">Hana Travel Trace, 어떤 혜택이 있나요?</h1>
+        <h1 class="display-6 fw-bold">Hana Travel Trace, 어떤 혜택이 있나요?</h1>
     <div class="text">
         <p class="fs-5">"TravelTrace" 는 "여행"과 "추적"이라는 단어를 결합한 것입니다. <br>
             TravelTrace는 여행자들이 하나머니로 외화를 충전하고 사용하는 <br>
             과정에서 발생하는 소비 내역을 자동으로 추적하고 분석합니다.</p>
     </div>
-    <img src="./img/hanamoney.png" width="250px">
-    <p class="fs-5">
-        하나머니로 결제시 환율 100% 우대 및 해외이용수수료가 면제됩니다. <br>
-        하나머니 충전 및 소비내역을 바탕으로 똑똑하고 꼼꼼하게 해외 지출 및 자산을 한눈에 확인해보세요! </p>
-    </div>
+        <img src="./img/hanamoney.png" width="250px">
+        <p class="fs-5">
+            하나머니로 결제시 환율 100% 우대 및 해외이용수수료가 면제됩니다. <br>
+            하나머니 충전 및 소비내역을 바탕으로 똑똑하고 꼼꼼하게 해외 지출 및 자산을 한눈에 확인해보세요! </p>
+        </div>
     <div class="parent_div">
         <div class="child_div">
             <div class="icon_div">
