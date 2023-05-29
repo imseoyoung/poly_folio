@@ -190,6 +190,7 @@ footer {
     justify-content: center;
     align-items: center;
     flex: 1;
+    margin-right: 50px;
 }
 .chart_div canvas {
     max-width: 100%;
