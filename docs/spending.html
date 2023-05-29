@@ -10,47 +10,6 @@
     <link rel="stylesheet" href="main.css">
     <!-- 차트 링크 -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-    <style>
-        /* @font-face {
-            font-family: 'Pretendard-Regular';
-            src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
-            font-weight: 400;
-            font-style: normal;
-        }
-
-        * {
-            font-family: 'Pretendard-Regular';
-        }
-
-        body {
-            background-image: url("./img/background.jpg");
-            background-size: cover;
-        }
-
-        .content {
-            margin-left: 200px;
-            margin-right: 200px;
-            display: flex;
-            align-items: center;
-            justify-content: space-around;
-        }
-
-        header {
-            background-color: white;
-            opacity: 0.7;
-        }
-
-        nav {
-            margin-left: 150px;
-            margin-right: 150px;
-        }
-
-        footer {
-            margin-left: 150px;
-            margin-right: 150px;
-            color: grey;
-        } */
-</style>
 </head>
 <body>
     <header>
@@ -104,11 +63,8 @@ $(document).ready(function() {
 </script>
     </header>
     <div class="content">
-        <style>
-</style>
-
-<div class="spending_main">
-    <div class="chart_div">
+        <div class="spending_main">
+    <div class="spending_chart_div">
         <div class="btn_div">
             <button onclick="prevSlide()"></button>
             <h1>GBP</h1>
@@ -116,6 +72,10 @@ $(document).ready(function() {
         </div>
         <br>
         <canvas id="myPieChart"></canvas>
+        <br>
+        <h4>총 지출내역은 <span class="green_text">908,216원</span></h4>
+        <br>
+        <img src="./img/recepit.png" width="380">
     </div>
 </div>
 
