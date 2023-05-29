@@ -2,7 +2,7 @@
 layout: base
 ---
 <style>
-    .main {
+    /* .hanamoney_main {
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -10,7 +10,7 @@ layout: base
         margin-top: 50px;
         margin-bottom: 100px;
     }
-    .text {
+    .hanamoney_text {
         text-align: left;
         margin-bottom: 20px;
     }
@@ -35,6 +35,7 @@ layout: base
     }
     .chart_box_div {
         display: flex;
+        flex-direction: column;
         align-items: center;
         justify-content: center;
         text-align: center;
@@ -45,6 +46,7 @@ layout: base
         margin: 7px 7px 7px 7px;
         width: 150px;
         height: 150px;
+        color: black;
     }
     .chart_container {
         display: flex;
@@ -56,10 +58,19 @@ layout: base
         max-width: 100%;
         max-height: 100%;
     }
+    .small_text {
+        font-size: small;
+    }
+    .green_text {
+        color: #008485;
+    }
+    .pink_text {
+        color: #E90061;
+    } */
 </style>
 
-<div class="main">
-    <div class="text">
+<div class="hanamoney_main">
+    <div class="hanamoney_text">
         <p class="fs-3 fw-bold">
             임서영 고객님의 <br>
             하나머니 이용 내역 분석 결과입니다.
@@ -68,16 +79,34 @@ layout: base
     <div class="chart_div">
         <div class="box_container">
             <div class="chart_box_div">
-                <p>최다 충전 외화</p>
+                <br>
+                <h5>최다 충전 외화</h5>
+                <h5>GBP</h5>
+                <p class="small_text"><span class="green_text">Others</span><br>
+                JPY, USD, EUR</p>
             </div>
             <div class="chart_box_div">
-                <p>평균 충전 금액</p>
+                <br>
+                <h5>평균 충전 금액</h5>
+                <h5>184,520원</h5>
+                <p class="small_text"><span class="pink_text">Total</span><br>
+                1,814,240원</p>
             </div>
             <div class="chart_box_div">
-                <p>충전 횟수</p>
+                <br>
+                <h5>충전 횟수</h5>
+                <h5>12회</h5>
+                <p class="small_text">연간 <span class="pink_text">평균 3회</span><br>
+                충전했어요
+                </p>
             </div>
             <div class="chart_box_div">
-                <p>적립된 하나머니</p>
+                <br>
+                <h5>적립된 하나머니</h5>
+                <h5>4,870원</h5>
+                <p class="small_text"><span class="green_text">카드 결제</span>로<br>
+                가장 많이 모았어요
+                </p>
             </div>
         </div>
         <div class="chart_container">
