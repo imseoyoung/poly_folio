@@ -1,0 +1,50 @@
+--- 
+layout: base
+---
+<div id="login_main">
+    <h1 id="login_header">Login</h1>
+    <p><span class="pink_text">이용자 비밀번호 5회 연속 오류시</span><br>
+        이용자 아이디/비밀번호 로그인 이용이 제한됩니다.
+    </p>
+    <div id="login_error_msg_holder">
+        <p id="login_error_msg">잘못된 아이디 또는<span id="error_msg_second_line">패스워드 입력입니다.</span></p>
+    </div>
+    <form id="login_form">
+        <input type="text" name="username" id="username_field" class="login_form_field" placeholder="아이디 입력">
+        <input type="password" name="password" id="password_field" class="login_form_field" placeholder="비밀번호 입력">
+        <br>
+        <input type="submit" value="로그인" id="login_form_submit">
+    </form>
+</div>
+
+<script>
+const loginForm = document.getElementById("login_form");
+const loginButton = document.getElementById("login_form_submit");
+const loginErrorMsg = document.getElementById("login_error_msg");
+
+loginButton.addEventListener("click", (event) => {
+    event.preventDefault();
+    const username = loginForm.username.value;
+    const password = loginForm.password.value;
+
+    if (validateLoginForm(username, password)) {
+        if (username === "scott" && password === "tiger") {
+            alert("로그인 성공");
+            location.reload();
+        } else {
+            loginErrorMsg.style.opacity = 1;
+        }
+    } else {
+        displayErrorMessage("아이디와 비밀번호를 모두 입력해주세요.");
+    }
+});
+
+function displayErrorMessage(message) {
+    loginErrorMsg.innerText = message;
+    loginErrorMsg.style.opacity = 1;
+}
+
+function validateLoginForm(username, password) {
+    return username.trim() !== "" && password.trim() !== "";
+}
+</script>

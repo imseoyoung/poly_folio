@@ -242,3 +242,82 @@ footer {
 .icon-box:hover {
     transform: scale( 1.1 )
 }
+
+/* mypage.html */
+#login_main {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    display: grid;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: white;
+    opacity: 0.7;
+    border-radius: 20px;
+    box-shadow: 5px 5px 5px 5px grey;
+    width: 900px;
+    height: 500px;
+}
+
+#login_header {
+    margin-top: 20px;
+}
+
+#login_error_msg_holder {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+}
+
+#login_error_msg {
+    text-align: center;
+    margin: 0;
+    padding: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #E90061;
+    border: 1px solid #E90061;
+    background-color: #e58f8f;
+    opacity: 0;
+}
+
+#error_msg_second_line {
+    display: block;
+}
+
+#login_form {
+    align-self: flex-start;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    text-align: center;
+}
+
+.login_form_field::placeholder {
+    color: #3a3a3a;
+}
+
+.login_form_field {
+    border: none;
+    border-bottom: 1px solid #3a3a3a;
+    margin-bottom: 10px;
+    border-radius: 3px;
+    outline: none;
+    padding: 0px 0px 5px 5px;
+}
+
+#login_form_submit {
+    width: 100%;
+    padding: 7px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    background-color: #5CBCA9;
+    cursor: pointer;
+    outline: none;
+}
