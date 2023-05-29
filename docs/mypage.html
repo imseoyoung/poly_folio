@@ -93,11 +93,15 @@ loginButton.addEventListener("click", (event) => {
     const password = loginForm.password.value;
 
     if (validateLoginForm(username, password)) {
-        if (username === "scott" && password === "tiger") {
-            alert("로그인 성공");
-            location.reload();
+        if (isUsernameValid(username)) {
+            if (username === "scott" && password === "tiger") {
+                alert("로그인 성공");
+                location.reload();
+            } else {
+                loginErrorMsg.style.opacity = 1;
+            }
         } else {
-            loginErrorMsg.style.opacity = 1;
+            displayErrorMessage("아이디는 영문과 숫자로만 입력해주세요.");
         }
     } else {
         displayErrorMessage("아이디와 비밀번호를 모두 입력해주세요.");
@@ -111,6 +115,11 @@ function displayErrorMessage(message) {
 
 function validateLoginForm(username, password) {
     return username.trim() !== "" && password.trim() !== "";
+}
+
+function isUsernameValid(username) {
+    const regex = /^[a-zA-Z0-9]+$/;
+    return regex.test(username);
 }
 </script>
     </div>
