@@ -15,7 +15,37 @@
     <header>
         <!-- jQuery를 로드하기 위한 스크립트 태그 추가 -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<style>
+    .footer_btns {
+    display: flex;
+    position: fixed;
+    right: .4rem;
+    bottom: .4rem;
+    }
 
+    .footer_btns > div {
+    padding: .6rem 1.5rem;
+    background: #111;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: .2s;
+    color: #fff;
+    margin-right: .4rem;
+    }
+
+    .moveTopBtn:hover {
+    color: #000;
+    background: #5CBCA9;
+    }
+    .moveBottomBtn:hover {
+    color: #000;
+    background: #5CBCA9;
+    }
+
+</style>
 <!-- HTML 코드 -->
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
@@ -45,6 +75,10 @@
         </ul>
         </div>
     </div>
+    <div class="footer_btns">
+        <div class="moveTopBtn">맨 위로</div>
+        <div class="moveBottomBtn">맨 아래로</div>
+    </div>
 </nav>
 
 <!-- JavaScript 코드 -->
@@ -63,10 +97,36 @@ $(document).ready(function() {
         }
     });
 });
+
+// 페이지 이동 버튼
+const $topBtn = document.querySelector(".moveTopBtn");
+
+// 버튼 클릭 시 맨 위로 이동
+$topBtn.onclick = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });  
+}
+
+const $bottomBtn = document.querySelector(".moveBottomBtn");
+
+// 버튼 클릭 시 페이지 하단으로 이동
+$bottomBtn.onclick = () => {
+    window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
+};
 </script>
     </header>
     <div class="content">
-        <div class="spending_main">
+        <style>
+    #receipt_img_div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #receipt_img_div img {
+        margin-bottom: 10px;
+    }
+</style>
+<div class="spending_main">
     <div class="spending_chart_div">
         <div class="btn_div">
             <button onclick="prevSlide()"></button>
@@ -78,7 +138,7 @@ $(document).ready(function() {
         <br>
         <h4>총 지출내역은 <span class="green_text">908,216원</span></h4>
         <br>
-        <img src="./img/recepit.png" width="380">
+        <div id="receipt_img_div"></div>
     </div>
 </div>
 
@@ -94,22 +154,42 @@ $(document).ready(function() {
     crossorigin="anonymous"></script>
 <!-- 차트 -->
 <script>
-    data = {
-        datasets: [{
-            backgroundColor: ['rgba(255, 99, 132, 0.2)','rgba(54, 162, 235, 0.2)','rgba(255, 206, 86, 0.2)', 'rgba(75, 192, 192, 0.2', 'rgba(153, 102, 255, 0.2)'],
-            data: [10, 20, 30, 20, 10]
-        }],       
-        // 라벨의 이름이 툴팁처럼 마우스가 근처에 오면 나타남
-        labels: ['숙박','쇼핑','식비', '교통', '그 외']
-    };
+    // JSON 파일 로드
+    fetch("json/payment_data.json")
+        .then((response) => response.json())
+        .then((data) => {
+            // 결제내역 데이터 가져오기
+            const paymentData = data.paymentData;
 
-    // 가운데 구멍이 없는 파이형 차트
-    var ctx1 = document.getElementById("myPieChart");
-    var myPieChart = new Chart(ctx1, {
-        type: 'pie',
-        data: data,
-        options: {}
-    });
+            // 차트 데이터 설정
+            const chartData = {
+                datasets: [{
+                    backgroundColor: ['rgba(255, 99, 132, 0.2)','rgba(54, 162, 235, 0.2)','rgba(255, 206, 86, 0.2)', 'rgba(75, 192, 192, 0.2', 'rgba(153, 102, 255, 0.2)'],
+                    data: paymentData.map(item => item.amount)
+                }],       
+                labels: paymentData.map(item => item.category)
+            };
+
+            // 가운데 구멍이 없는 파이형 차트
+            var ctx1 = document.getElementById("myPieChart");
+            var myPieChart = new Chart(ctx1, {
+                type: 'pie',
+                data: chartData,
+                options: {}
+            });
+
+            // 결제내역 이미지 추가
+            const receiptImgDiv = document.getElementById("receipt_img_div");
+            paymentData.forEach(item => {
+                const img = document.createElement("img");
+                img.src = item.receiptImage;
+                img.width = "380";
+                receiptImgDiv.appendChild(img);
+            });
+        })
+        .catch((error) => {
+            console.error("JSON 파일을 로드하는 중 오류가 발생했습니다:", error);
+        });
 </script>
     </div>
     <footer>

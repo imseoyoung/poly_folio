@@ -1,0 +1,29 @@
+{
+"paymentData": [
+    {
+        "category": "숙박",
+        "amount": 900000,
+        "receiptImage": "./img/payment.png"
+    },
+    {
+        "category": "쇼핑",
+        "amount": 400000,
+        "receiptImage": "./img/payment.png"
+    },
+    {
+        "category": "식비",
+        "amount": 400000,
+        "receiptImage": "./img/payment.png"
+    },
+    {
+        "category": "교통",
+        "amount": 50000,
+        "receiptImage": "./img/payment.png"
+    },
+    {
+        "category": "그 외",
+        "amount": 200000,
+        "receiptImage": "./img/payment.png"
+    }
+    ]
+}

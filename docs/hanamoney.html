@@ -15,7 +15,37 @@
     <header>
         <!-- jQuery를 로드하기 위한 스크립트 태그 추가 -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<style>
+    .footer_btns {
+    display: flex;
+    position: fixed;
+    right: .4rem;
+    bottom: .4rem;
+    }
 
+    .footer_btns > div {
+    padding: .6rem 1.5rem;
+    background: #111;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: .2s;
+    color: #fff;
+    margin-right: .4rem;
+    }
+
+    .moveTopBtn:hover {
+    color: #000;
+    background: #5CBCA9;
+    }
+    .moveBottomBtn:hover {
+    color: #000;
+    background: #5CBCA9;
+    }
+
+</style>
 <!-- HTML 코드 -->
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
@@ -45,6 +75,10 @@
         </ul>
         </div>
     </div>
+    <div class="footer_btns">
+        <div class="moveTopBtn">맨 위로</div>
+        <div class="moveBottomBtn">맨 아래로</div>
+    </div>
 </nav>
 
 <!-- JavaScript 코드 -->
@@ -63,6 +97,21 @@ $(document).ready(function() {
         }
     });
 });
+
+// 페이지 이동 버튼
+const $topBtn = document.querySelector(".moveTopBtn");
+
+// 버튼 클릭 시 맨 위로 이동
+$topBtn.onclick = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });  
+}
+
+const $bottomBtn = document.querySelector(".moveBottomBtn");
+
+// 버튼 클릭 시 페이지 하단으로 이동
+$bottomBtn.onclick = () => {
+    window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
+};
 </script>
     </header>
     <div class="content">
@@ -125,42 +174,37 @@ $(document).ready(function() {
     
 <!-- 차트 -->
 <script>
-    var ctx = document.getElementById('myChart');
-    var myChart = new Chart(ctx, {
-    type: 'bar',
-    data: {
-        labels: ['2018', '2019', '2020', '2021', '2022', '2023'],
-        datasets: [{
-        label: '# of Votes',
-        data: [12, 19, 3, 5, 2, 3],
-        backgroundColor: [
-            'rgba(255, 99, 132, 0.2)',
-            'rgba(54, 162, 235, 0.2)',
-            'rgba(255, 206, 86, 0.2)',
-            'rgba(75, 192, 192, 0.2)',
-            'rgba(153, 102, 255, 0.2)',
-            'rgba(255, 159, 64, 0.2)'
-        ],
-        borderColor: [
-            'rgba(255, 99, 132, 1)',
-            'rgba(54, 162, 235, 1)',
-            'rgba(255, 206, 86, 1)',
-            'rgba(75, 192, 192, 1)',
-            'rgba(153, 102, 255, 1)',
-            'rgba(255, 159, 64, 1)'
-        ],
-        borderWidth: 1
-        }]
-    },
-    options: {
-        scales: {
-        yAxes: [{
-            ticks: {
-            beginAtZero: true
+// JSON 파일 로드
+fetch("json/chart_data.json")
+    .then((response) => response.json())
+    .then((data) => {
+        // 차트 데이터 설정
+        const chartData = {
+            labels: data.labels,
+            datasets: [{
+                label: '연간 소비내역',
+                data: data.data,
+                backgroundColor: data.backgroundColor,
+                borderColor: data.borderColor,
+                borderWidth: 1
+            }]
+        };
+
+        // 차트 생성
+        var ctx = document.getElementById('myChart');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: chartData,
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
             }
-        }]
-        }
-    }
+        });
     });
 </script>
     </div>

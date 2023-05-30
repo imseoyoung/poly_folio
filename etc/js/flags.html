@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .table {
+            border: 1px solid black;
+        }
+
+        .table img {
+            width:50px;
+            border-radius: 50%;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <script>
+
+        function getHttpRequest(url, callback) {
+            var request = new XMLHttpRequest();
+            request.onreadystatechange = function(event){
+                if(request.readyState == 4){
+                    if(request.status == 200){
+                        // 요청이 정상적으로 처리 된 경우
+                        console.log("success");
+                        //console.log(request.responseText)
+                        callback(request.responseText);
+                    } else {
+                        // 에러가 발생한 경우
+                    }
+                }
+            } 
+
+            const method = "GET";
+            request.open('get',url,true);
+            request.send();
+        }
+
+        const url = "json/flags.json";   
+        getHttpRequest(url, function(response) {
+            var json = JSON.parse(response);
+
+            for (var object in json){
+                let flag = document.createElement('img');
+                flag.src = json[object].image;
+                //flag.style="width:50px";
+                json[object].image = flag;
+            }
+
+            let table = createTable(json);
+            document.body.appendChild(table);
+
+        });
+
+        function createTable(obj) {
+    let table = document.createElement('table');
+    table.classList.add("table");
+
+    let tbody = document.createElement('tbody');
+    obj.forEach((el, index) => { // 인덱스 값(index) 추가
+        let tr = document.createElement('tr');
+
+        // 번호 추가
+        let tdNumber = document.createElement('td');
+        tdNumber.innerHTML = index + 1; // 1부터 시작하도록 설정
+        tr.appendChild(tdNumber);
+
+        Object.keys(el).forEach((item, i) => {
+            if (typeof (el[item]) == "object") {
+                tr.appendChild(el[item]);
+            } else {
+                let td = document.createElement('td');
+                td.innerHTML = el[item];
+                tr.appendChild(td);
+            }
+        });
+
+        // 배경색 추가
+        if ((index + 1) % 2 === 0) {
+            tr.style.backgroundColor = "lightgray";
+        } else {
+            tr.style.backgroundColor = "white";
+        }
+
+        tbody.appendChild(tr);
+    });
+
+    table.appendChild(tbody);
+    return table;
+}
+    </script>
+</body>
+</html>
