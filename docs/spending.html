@@ -15,37 +15,6 @@
     <header>
         <!-- jQuery를 로드하기 위한 스크립트 태그 추가 -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<style>
-    .footer_btns {
-    display: flex;
-    position: fixed;
-    right: .4rem;
-    bottom: .4rem;
-    }
-
-    .footer_btns > div {
-    padding: .6rem 1.5rem;
-    background: #111;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: .2s;
-    color: #fff;
-    margin-right: .4rem;
-    }
-
-    .moveTopBtn:hover {
-    color: #000;
-    background: #5CBCA9;
-    }
-    .moveBottomBtn:hover {
-    color: #000;
-    background: #5CBCA9;
-    }
-
-</style>
 <!-- HTML 코드 -->
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
@@ -75,44 +44,7 @@
         </ul>
         </div>
     </div>
-    <div class="footer_btns">
-        <div class="moveTopBtn">맨 위로</div>
-        <div class="moveBottomBtn">맨 아래로</div>
-    </div>
 </nav>
-
-<!-- JavaScript 코드 -->
-<script>
-$(document).ready(function() {
-    // 현재 URL을 가져와서 활성화된 링크를 찾음
-    var currentURL = window.location.href;
-
-    $('.nav-link').each(function() {
-        // 각 링크의 href 속성 값을 가져옴
-        var linkURL = $(this).attr('href');
-
-        // 현재 URL과 href 속성 값이 일치하는 경우 "active" 클래스를 추가함
-        if (currentURL.indexOf(linkURL) !== -1) {
-            $(this).addClass('active');
-        }
-    });
-});
-
-// 페이지 이동 버튼
-const $topBtn = document.querySelector(".moveTopBtn");
-
-// 버튼 클릭 시 맨 위로 이동
-$topBtn.onclick = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });  
-}
-
-const $bottomBtn = document.querySelector(".moveBottomBtn");
-
-// 버튼 클릭 시 페이지 하단으로 이동
-$bottomBtn.onclick = () => {
-    window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
-};
-</script>
     </header>
     <div class="content">
         <style>
@@ -152,45 +84,6 @@ $bottomBtn.onclick = () => {
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
-<!-- 차트 -->
-<script>
-    // JSON 파일 로드
-    fetch("json/payment_data.json")
-        .then((response) => response.json())
-        .then((data) => {
-            // 결제내역 데이터 가져오기
-            const paymentData = data.paymentData;
-
-            // 차트 데이터 설정
-            const chartData = {
-                datasets: [{
-                    backgroundColor: ['rgba(255, 99, 132, 0.2)','rgba(54, 162, 235, 0.2)','rgba(255, 206, 86, 0.2)', 'rgba(75, 192, 192, 0.2', 'rgba(153, 102, 255, 0.2)'],
-                    data: paymentData.map(item => item.amount)
-                }],       
-                labels: paymentData.map(item => item.category)
-            };
-
-            // 가운데 구멍이 없는 파이형 차트
-            var ctx1 = document.getElementById("myPieChart");
-            var myPieChart = new Chart(ctx1, {
-                type: 'pie',
-                data: chartData,
-                options: {}
-            });
-
-            // 결제내역 이미지 추가
-            const receiptImgDiv = document.getElementById("receipt_img_div");
-            paymentData.forEach(item => {
-                const img = document.createElement("img");
-                img.src = item.receiptImage;
-                img.width = "380";
-                receiptImgDiv.appendChild(img);
-            });
-        })
-        .catch((error) => {
-            console.error("JSON 파일을 로드하는 중 오류가 발생했습니다:", error);
-        });
-</script>
     </div>
     <footer>
         <hr>
@@ -199,6 +92,11 @@ $bottomBtn.onclick = () => {
     <span>평일 AM 09:00 ~ PM 18:00 </span><br/>
     <span>Copyright 2023. hana travel trace. All Rights Reserved.</span>
 </p>
+<div class="footer_btns">
+    <div class="moveTopBtn">맨 위로</div>
+    <div class="moveBottomBtn">맨 아래로</div>
+</div>
     </footer>
+    <script src="main.js"></script>
 </body>
 </html>
